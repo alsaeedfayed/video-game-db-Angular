@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core'
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 
 import { AppRoutingModule } from './app-routing.module'
@@ -14,8 +14,11 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { HomeComponent } from './components/home/home.component'
 import { HEADER_INTERCEPTOR } from './interceptors/http-headers.interceptor'
 import { ERROR_INTERCEPTOR } from './interceptors/http-errors.interceptor'
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { DetailsComponent } from './components/details/details.component'
+
 @NgModule({
-  declarations: [AppComponent, SearchBarComponent, HomeComponent],
+  declarations: [AppComponent, SearchBarComponent, HomeComponent, DetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,8 +29,10 @@ import { ERROR_INTERCEPTOR } from './interceptors/http-errors.interceptor'
     MatIconModule,
     MatFormFieldModule,
     MatTabsModule,
+    NgxSpinnerModule,
   ],
   providers: [HEADER_INTERCEPTOR, ERROR_INTERCEPTOR],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

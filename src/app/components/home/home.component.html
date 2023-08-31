@@ -2,7 +2,7 @@
     <div class="filters">
         <mat-form-field>
             <mat-label>Sort</mat-label>
-            <mat-select panelClass="sort-select" [(ngModel)]="sort">
+            <mat-select panelClass="sort-select" [(ngModel)]="sort" (selectionChange)="searchGames(sort)">
                 <mat-option value="name">Name</mat-option>
                 <mat-option value="-released">Released</mat-option>
                 <mat-option value="-added">Added</mat-option>
@@ -16,7 +16,7 @@
 
     <div class="games">
         <ng-container *ngFor="let game of Games">
-            <div class="game">
+            <div class="game" (click)="openGameDetails(game.id)">
                 <div class="game-thumb-container">
                     <img *ngIf="game.background_image" [src]="game.background_image" alt="img" class="game-thumbnail" />
                     <p *ngIf="!game.background_image">No Image</p>
@@ -33,3 +33,8 @@
         </ng-container>
     </div>
 </div>
+
+<ngx-spinner bdColor="rgba(0, 0, 0, .8)" size="medium" color="rgba(200 152 44)" type="ball-spin-clockwise"
+    [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>

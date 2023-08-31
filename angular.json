@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+               "node_modules/ngx-spinner/animations/ball-spin-clockwise.css",
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
