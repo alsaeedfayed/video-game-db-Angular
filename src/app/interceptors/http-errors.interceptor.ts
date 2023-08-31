@@ -4,6 +4,7 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
+  HTTP_INTERCEPTORS,
 } from '@angular/common/http'
 import { Observable, catchError, throwError } from 'rxjs'
 
@@ -22,4 +23,10 @@ export class HttpErrorsInterceptor implements HttpInterceptor {
       }),
     )
   }
+}
+
+export const ERROR_INTERCEPTOR = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: HttpErrorsInterceptor,
+  multi: true,
 }

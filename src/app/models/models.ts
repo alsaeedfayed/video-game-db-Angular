@@ -24,7 +24,9 @@ interface Genre {
 
 interface Parentplatform {
   platform: {
+    [x: string]: any
     name: string
+    slug: string
   }
 }
 

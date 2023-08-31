@@ -9,9 +9,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatSelectModule } from '@angular/material/select'
 import { MatIconModule } from '@angular/material/icon'
 import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatTabsModule } from '@angular/material/tabs';
-import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { MatTabsModule } from '@angular/material/tabs'
+import { SearchBarComponent } from './components/search-bar/search-bar.component'
 import { HomeComponent } from './components/home/home.component'
+import { HEADER_INTERCEPTOR } from './interceptors/http-headers.interceptor'
+import { ERROR_INTERCEPTOR } from './interceptors/http-errors.interceptor'
 @NgModule({
   declarations: [AppComponent, SearchBarComponent, HomeComponent],
   imports: [
@@ -25,7 +27,7 @@ import { HomeComponent } from './components/home/home.component'
     MatFormFieldModule,
     MatTabsModule,
   ],
-  providers: [],
+  providers: [HEADER_INTERCEPTOR, ERROR_INTERCEPTOR],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

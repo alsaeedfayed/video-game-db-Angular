@@ -15,18 +15,21 @@
     </div>
 
     <div class="games">
-        <div class="game">
-            <div class="game-thumb-container">
-                <img src="https://t4.ftcdn.net/jpg/04/42/21/53/360_F_442215355_AjiR6ogucq3vPzjFAAEfwbPXYGqYVAap.jpg"
-                    alt="img" class="game-thumbnail" />
+        <ng-container *ngFor="let game of Games">
+            <div class="game">
+                <div class="game-thumb-container">
+                    <img *ngIf="game.background_image" [src]="game.background_image" alt="img" class="game-thumbnail" />
+                    <p *ngIf="!game.background_image">No Image</p>
+                </div>
+                <div class="game-description">
+                    <p class="game-name">{{ game.name }}</p>
+                </div>
+                <div class="game-platforms">
+                    <img *ngFor="let gamePlatform of game.parent_platforms"
+                        src="assets/images/platform/{{ gamePlatform.platform.slug }}.svg" alt="slug"
+                        class="game-platform" />
+                </div>
             </div>
-            <div class="game-description">
-                <p class="game-name">Name</p>
-            </div>
-            <div class="game-platforms">
-                <img src="https://cdn.pixabay.com/photo/2016/10/30/23/05/controller-1784573_640.png" alt="slug"
-                    class="game-platform" />
-            </div>
-        </div>
+        </ng-container>
     </div>
 </div>
