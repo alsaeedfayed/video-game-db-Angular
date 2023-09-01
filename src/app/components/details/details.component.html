@@ -1,15 +1,26 @@
-<div class="details">
+<ngx-spinner bdColor="rgba(0, 0, 0, .8)" size="medium" color="rgba(200 152 44)" type="ball-spin-clockwise"
+    [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>
+<div class="details" *ngIf="loading">
     <div class="game-banner">
-        <img src="" alt="bg-image" class="game-banner-img">
+        <img src="{{game.background_image}}" alt="bg-image" class="game-banner-img">
     </div>
     <div class="game-content">
         <div class="details-wrapper">
             <div class="game-header">
-                <h1 class="gamer-header-title">Game Name</h1>
-                <h2 class="gamer-header-release-date">324</h2>
-                <p class="game-header-genres"><span>RPG</span></p>
+                <h1 class="game-header-title">{{game.name}}</h1>
+                <h2 class="game-header-release-date">{{game.released | date}}</h2>
+                <p class="game-header-genres"><span *ngFor="let genre of game.genres ; let last = last">
+                        {{genre.name}} <span *ngIf="!last"> , </span>
+                    </span></p>
             </div>
         </div>
+        <div style="margin-top: 7rem;">
+            <app-game-tabs [game]="game"></app-game-tabs>
+        </div>
+
     </div>
+
 
 </div>

@@ -17,7 +17,8 @@ import { ERROR_INTERCEPTOR } from './interceptors/http-errors.interceptor'
 import { NgxSpinnerModule } from 'ngx-spinner'
 import { DetailsComponent } from './components/details/details.component'
 import { NgxStarRatingModule } from 'ngx-star-rating'
-import { StarRatingModule } from 'angular-star-rating'
+import { StarRatingModule } from 'angular-star-rating';
+import { GameTabsComponent } from './components/game-tabs/game-tabs.component'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { StarRatingModule } from 'angular-star-rating'
     SearchBarComponent,
     HomeComponent,
     DetailsComponent,
+    GameTabsComponent,
   ],
   imports: [
     BrowserModule,

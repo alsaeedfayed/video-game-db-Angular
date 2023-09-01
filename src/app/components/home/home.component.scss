@@ -2,11 +2,14 @@
     max-width: 1200px;
     margin: 20px auto;
     padding-left: 20px;
+    text-align: left;
 }
 
 :host ::ng-deep {
     .mat-form-field-infix {
         background-color: #3f51b5;
+        width: 20rem;
+        padding: .6rem;
     }
 
     .mat-select-value,
